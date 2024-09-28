@@ -30,9 +30,16 @@
       },
       "timeout": 3
     },
+    "appcd_3a1063dc-09eb-4dd7-a24c-95e2c87f6f03": {
+      "name": "panchugade",
+      "policy": "{\r\n    \"Version\": \"2012-10-17\",\r\n    \"Statement\": [\r\n        {\r\n            \"Sid\": \"hellokittyIMAGESBUCKETS3Bucket551e1d2b88ec540687cfc51521bbe894\",\r\n            \"Action\": [\r\n                \"s3:Get*\",\r\n                \"s3:List*\"\r\n            ],\r\n            \"Effect\": \"Allow\",\r\n            \"Resource\": [\r\n                \"${module.appcd_551e1d2b-88ec-5406-87cf-c51521bbe894.arn}\",\r\n                \"${module.appcd_551e1d2b-88ec-5406-87cf-c51521bbe894.arn}/*\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+      "role": "${module.appcd_b71fd16c-797e-5a95-8e1b-ab22f1e34f43.name}",
+      "role_type": "Custom",
+      "source": "./modules/aws_iam_role_policy"
+    },
     "appcd_551e1d2b-88ec-5406-87cf-c51521bbe894": {
       "block_public_access": true,
-      "bucket_name": "panchugade200582",
+      "bucket_name": "panchugade200581",
       "bucket_policy": "",
       "enable_versioning": true,
       "enable_website_configuration": false,
@@ -53,13 +60,6 @@
         "appstack": "aws kmda terra form IaC",
         "component": "hello-kitty"
       }
-    },
-    "appcd_8fd8e4a1-1ecd-4c4b-a46e-e35ad4efec91": {
-      "name": "aws_s3-hello-kitty-policy",
-      "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowKmsAccess\",\n      \"Action\": [\n        \"kms:Decrypt\",\n        \"kms:Encrypt\",\n        \"kms:GenerateDataKey\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.appcd_551e1d2b-88ec-5406-87cf-c51521bbe894.kms_arn}\"\n      ]\n    },\n    {\n      \"Sid\": \"hellokittyIMAGESBUCKETS3Bucket551e1d2b88ec540687cfc51521bbe894\",\n      \"Action\": [\n        \"s3:PutObject\",\n        \"s3:ListBucket\",\n        \"s3:GetObject\",\n        \"s3:GetObjectVersion\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": [\n        \"${module.appcd_551e1d2b-88ec-5406-87cf-c51521bbe894.arn}\",\n        \"${module.appcd_551e1d2b-88ec-5406-87cf-c51521bbe894.arn}/*\"\n      ]\n    }\n  ]\n}",
-      "role": "${module.appcd_b71fd16c-797e-5a95-8e1b-ab22f1e34f43.name}",
-      "role_type": "Custom",
-      "source": "./modules/aws_iam_role_policy"
     },
     "appcd_a7c4ec4f-37fb-4672-8406-d1cc21173fec": {
       "name": "Writer",
